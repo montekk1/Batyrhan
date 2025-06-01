@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Онлайн-Курсы</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="shapka">
+    <div class="left">
+      <img src="https://img.freepik.com/premium-vector/online-learning-courses-logo-template-icon-illustration-brand-identity_7109-1479.jpg" alt="Логотип" class="logo">
+      <div class="shapkatext">Онлайн-Курсы</div>
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#why">Почему мы</a></li>
+        <li><a href="#services">Курсы</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+        <li><a href="register.html">Регистрация</a></li>
+        <li><a href="login.html">Вход</a></li>
+      </ul>
+      <span id="welcomeMsg"></span>
+      <button id="logoutBtn" style="display: none;" onclick="logout()">Выйти</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Добро пожаловать на платформу онлайн-курсов!</h1>
+      <p>Учитесь в удобное время, где бы вы ни находились.</p>
+      <a href="#services" class="btn btn1">Смотреть курсы</a>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>О нас</h2>
+    <div class="about-content">
+      <p><strong>Наша цель</strong> — предоставить доступное и качественное образование каждому.</p>
+      <p>Мы предлагаем курсы по математике, физике, программированию и другим важным дисциплинам.</p>
+    </div>
+  </section>
+
+  <section id="why" class="why-section">
+    <h2>Почему выбирают нас?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Опытные преподаватели</h3>
+        <p>Все курсы ведут сертифицированные специалисты.</p>
+      </div>
+      <div class="why-card">
+        <h3>Гибкое обучение</h3>
+        <p>Проходите уроки в удобное время в своём ритме.</p>
+      </div>
+      <div class="why-card">
+        <h3>Сертификаты</h3>
+        <p>Получайте подтверждение своих знаний.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services-list">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" class="service-icon" alt="Иконка">
+      <h2>Математика</h2>
+      <p>Курс по алгебре, геометрии, тригонометрии и подготовке к экзаменам.</p>
+      <a href="javascript:void(0);" class="btn-service" onclick="toggleMathDetails()">Подробнее</a>
+  
+      <div id="mathDetails" style="display: none; margin-top: 10px;">
+        <p>🔹 Углублённый разбор тем по алгебре и геометрии<br>
+        🔹 Решение заданий из ЕГЭ/ОГЭ<br>
+        🔹 Теория и практика по тригонометрии<br>
+        🔹 Индивидуальный подход и практика на каждом уроке<br>
+        🔹 Поддержка преподавателя по всем вопросам</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721272.png" class="service-icon" alt="Иконка">
+      <h2>Физика</h2>
+      <p>Понять законы природы легко с нашими интерактивными уроками.</p>
+      <a href="javascript:void(0);" class="btn-service" onclick="togglePhysicsDetails()">Подробнее</a>
+
+      <div id="physicsDetails" style="display: none; margin-top: 10px;">
+        <p>🔹 Механика, электродинамика, оптика и термодинамика<br>
+        🔹 Интерактивные симуляции и анимации<br>
+        🔹 Подготовка к ОГЭ и ЕГЭ<br>
+        🔹 Практика решения задач с разбором<br>
+        🔹 Доступ к видеоматериалам и тестам</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721220.png" class="service-icon" alt="Иконка">
+      <h2>Программирование</h2>
+      <p>Изучайте Python, C#, веб-разработку и создавайте собственные проекты.</p>
+      <a href="javascript:void(0);" class="btn-service" onclick="toggleProgrammingDetails()">Подробнее</a>
+
+      <div id="programmingDetails" style="display: none; margin-top: 10px;">
+        <p>💻 Основы программирования и алгоритмы<br>
+        💻 Языки: Python, C#, JavaScript<br>
+        💻 Создание сайтов и приложений<br>
+        💻 Практические проекты и лабораторные<br>
+        💻 Поддержка наставников и сертификаты</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="rating" class="rating-section">
+    <h2>Оцените курс</h2>
+    <form class="rating-form" id="ratingForm">
+      <label>Выберите курс:</label>
+      <select id="courseSelect" required>
+        <option disabled selected>Выберите</option>
+        <option>Математика</option>
+        <option>Физика</option>
+        <option>Программирование</option>
+      </select>
+
+      <label>Ваша оценка:</label>
+      <div class="stars" id="starContainer">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+
+      <textarea id="comment" placeholder="Комментарий (необязательно)"></textarea>
+      <button type="submit" class="btn btn1">Отправить</button>
+
+      <p id="thankYouMessage" style="display:none; color:green; margin-top:10px;">Спасибо за вашу оценку!</p>
+    </form>
+  </section>
+
+  <section id="reviews" class="reviews-section">
+    <h2>Отзывы пользователей</h2>
+    <div id="reviewsContainer"></div>
+  </section>
+
+  <footer class="footer" id="contacts">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>О платформе</h3>
+        <p>Наша миссия — сделать качественное онлайн-образование доступным для каждого.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#services">Курсы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+      <div class="footer-contacts">
+        <h4>Контакты</h4>
+        <p>Email: info@onlinecourses.com</p>
+        <p>Тел: +7 (900) 123-45-67</p>
+        <div class="social-icons">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="VK"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 Онлайн-Курсы. Все права защищены.</div>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    // Показать кнопку при прокрутке
+    window.onscroll = function() {
+      const btn = document.getElementById("scrollTopBtn");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    // Скролл вверх
+    document.getElementById("scrollTopBtn").onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+
+  <script>
+    function toggleMathDetails() {
+      const details = document.getElementById("mathDetails");
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    function togglePhysicsDetails() {
+      const details = document.getElementById("physicsDetails");
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    function toggleProgrammingDetails() {
+      const details = document.getElementById("programmingDetails");
+      if (details.style.display === "none" || details.style.display === "") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+  </script>
+
+  <script>
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const user = JSON.parse(localStorage.getItem("user"));
+  
+    if (isLoggedIn && user) {
+      document.getElementById("welcomeMsg").textContent = `Добро пожаловать, ${user.name}!`;
+    }
+  </script>
+
+  <script>
+    window.onload = function () {
+      const welcomeMsg = document.getElementById('welcomeMsg');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const user = JSON.parse(localStorage.getItem('user'));
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+      if (user && isLoggedIn === 'true') {
+        welcomeMsg.textContent = `Добро пожаловать, ${user.name}!`;
+        logoutBtn.style.display = 'inline-block';
+      } else {
+        welcomeMsg.textContent = '';
+        logoutBtn.style.display = 'none';
+      }
+    };
+
+    function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      window.location.reload(); // Обновляем страницу
+    }
+  </script>
+
+  <script>
+    const stars = document.querySelectorAll(".star");
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener("mouseover", () => {
+        resetStars();
+        highlightStars(star.dataset.value);
+      });
+
+      star.addEventListener("click", () => {
+        selectedRating = star.dataset.value;
+        resetStars();
+        highlightStars(selectedRating);
+      });
+
+      star.addEventListener("mouseout", () => {
+        resetStars();
+        if (selectedRating > 0) highlightStars(selectedRating);
+      });
+    });
+
+    function highlightStars(count) {
+      stars.forEach(star => {
+        if (star.dataset.value <= count) {
+          star.classList.add("active");
+        }
+      });
+    }
+
+    function resetStars() {
+      stars.forEach(star => star.classList.remove("active"));
+    }
+
+    // Обработка отправки оценки
+    document.getElementById("ratingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const course = document.getElementById("courseSelect").value;
+      const comment = document.getElementById("comment").value;
+
+      if (!selectedRating || course === "Выберите") {
+        alert("Пожалуйста, выберите курс и поставьте оценку.");
+        return;
+      }
+
+      // Создание объекта отзыва
+      const review = {
+        course: course,
+        rating: selectedRating,
+        comment: comment,
+        date: new Date().toLocaleDateString()
+      };
+
+      // Получение старых отзывов и добавление нового
+      const reviews = JSON.parse(localStorage.getItem("courseReviews")) || [];
+      reviews.push(review);
+      localStorage.setItem("courseReviews", JSON.stringify(reviews));
+
+      // Обновление блока отзывов
+      showReviews();
+
+      // Очистка формы
+      this.reset();
+      selectedRating = 0;
+      resetStars();
+      document.getElementById("thankYouMessage").style.display = "block";
+    });
+
+    // Отображение отзывов при загрузке
+    function showReviews() {
+      const container = document.getElementById("reviewsContainer");
+      container.innerHTML = "";
+
+      const reviews = JSON.parse(localStorage.getItem("courseReviews")) || [];
+      reviews.reverse().forEach(r => {
+        const card = document.createElement("div");
+        card.className = "review-card";
+        card.innerHTML = `
+          <strong>${r.course} — ${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</strong>
+          <small>${r.date}</small>
+          <p>${r.comment || "<em>Комментарий не указан.</em>"}</p>
+      `  ;
+        container.appendChild(card);
+      });
+    }
+
+    // Вызов при загрузке страницы
+    document.addEventListener("DOMContentLoaded", showReviews);
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #283593, #5c6bc0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #1a237e;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #1a237e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #3949ab;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Вход</h2>
+    <input type="text" id="loginName" placeholder="Имя пользователя" required>
+    <input type="password" id="loginPass" placeholder="Пароль" required>
+    <button onclick="login()">Войти</button>
+    <div class="error-message" id="errorMsg"></div>
+  </div>
+
+  <script>
+    function login() {
+      const name = document.getElementById('loginName').value.trim();
+      const pass = document.getElementById('loginPass').value.trim();
+      const msg = document.getElementById('errorMsg');
+
+      const storedUser = JSON.parse(localStorage.getItem('user'));
+
+      if (!storedUser || storedUser.name !== name || storedUser.password !== pass) {
+        msg.textContent = 'Неверное имя или пароль.';
+        return;
+      }
+
+      localStorage.setItem('isLoggedIn', 'true');
+      msg.style.color = 'green';
+      msg.textContent = 'Вход выполнен! Перенаправление...';
+
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
+

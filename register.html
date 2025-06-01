@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Регистрация</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .register-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+    }
+
+    .register-container h2 {
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #0d47a1;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #1565c0;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h2>Регистрация</h2>
+    <input type="text" id="regName" placeholder="Ваше имя" required>
+    <input type="password" id="regPass" placeholder="Пароль" required>
+    <button onclick="register()">Зарегистрироваться</button>
+    <div class="success-message" id="successMsg"></div>
+  </div>
+
+  <script>
+    function register() {
+      const name = document.getElementById('regName').value.trim();
+      const pass = document.getElementById('regPass').value.trim();
+      const msg = document.getElementById('successMsg');
+
+      if (!name || !pass) {
+        msg.textContent = 'Пожалуйста, заполните все поля.';
+        msg.style.color = 'red';
+        return;
+      }
+
+      const user = { name, password: pass };
+      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('isLoggedIn', 'true');
+
+      msg.textContent = 'Регистрация прошла успешно!';
+      msg.style.color = 'green';
+
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
